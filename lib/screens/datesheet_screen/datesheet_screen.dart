@@ -1,5 +1,5 @@
-import 'package:rochiram/constants.dart';
-import 'package:rochiram/screens/datesheet_screen/data/datesheet_data.dart';
+import 'package:EmpoweringLearningEdventure/constants.dart';
+import 'package:EmpoweringLearningEdventure/screens/datesheet_screen/data/datesheet_data.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

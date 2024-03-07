@@ -1,4 +1,4 @@
-name: rochiram
+name: EmpoweringLearningEdventure
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -38,6 +38,12 @@ dependencies:
   google_fonts: 6.1.0
   flutter_svg: ^2.0.10+1
   sizer: ^2.0.15
+  firebase_core: ^2.25.5
+  firebase_auth: ^4.17.7
+  path_provider: ^2.1.2
+  cloud_firestore: ^4.15.7
+  video_player: ^2.8.3
+  chewie: ^1.7.5
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +71,7 @@ flutter:
   assets:
      - assets/images/
      - assets/icons/
+     - assets/videos/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

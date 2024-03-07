@@ -1,5 +1,5 @@
-import 'package:rochiram/constants.dart';
-import 'package:rochiram/screens/assignment_screen/data/assignment_data.dart';
+import 'package:EmpoweringLearningEdventure/constants.dart';
+import 'package:EmpoweringLearningEdventure/screens/assignment_screen/data/assignment_data.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'widgets/assignment_widget.dart';

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853621482876",
+    "project_id": "empowering-learning-edve-d550f",
+    "storage_bucket": "empowering-learning-edve-d550f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853621482876:android:1ae5596f15b98342e530f9",
+        "android_client_info": {
+          "package_name": "com.example.rochiram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqUssAGcVgx6qGBYLrRQYTHIqQSZfvEXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

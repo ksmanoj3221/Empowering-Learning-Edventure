@@ -1,8 +1,9 @@
+import 'package:EmpoweringLearningEdventure/screens/role_selection/role_selection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sizer/sizer.dart';
-import 'package:rochiram/screens/login_screen/login_screen.dart';
+import 'package:EmpoweringLearningEdventure/screens/login_screen/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       //no return when user is on login screen and press back, it will not return the
       //user to the splash screen
       Navigator.pushNamedAndRemoveUntil(
-          context, LoginScreen.routeName, (route) => false);
+          context, RoleSelection.routeName, (route) => false);
     });
   }
 

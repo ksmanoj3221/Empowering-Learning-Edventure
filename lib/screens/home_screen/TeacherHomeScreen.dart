@@ -2,11 +2,8 @@ import 'package:EmpoweringLearningEdventure/constants.dart';
 import 'package:EmpoweringLearningEdventure/screens/assignment_screen/assignment_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/datesheet_screen/datesheet_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/fee_screen/fee_screen.dart';
-import 'package:EmpoweringLearningEdventure/screens/gallery_screen/gallery_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/login_screen/login_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/my_profile/my_profile.dart';
-import 'package:EmpoweringLearningEdventure/screens/quiz_screen/quiz_screen.dart';
-import 'package:EmpoweringLearningEdventure/screens/video_screen/video_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
@@ -14,16 +11,19 @@ import 'widgets/student_data.dart';
 import 'package:EmpoweringLearningEdventure/auth/authenticationService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:EmpoweringLearningEdventure/screens/role_selection/role_selection.dart';
+import 'package:EmpoweringLearningEdventure/screens/quiz_screen/quiz_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/notice_screen/notice_screen.dart';
+import 'package:EmpoweringLearningEdventure/screens/gallery_screen/gallery_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
-  static String routeName = 'HomeScreen';
+class TeacherHomeScreen extends StatelessWidget {
+  TeacherHomeScreen({super.key});
+  static String routeName = 'TeacherHomeScreen';
   final AuthenticationService _authenticationService = AuthenticationService(FirebaseAuth.instance);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
+
       body: Column(
         children: [
           //we will divide the screen into two parts
@@ -35,35 +35,33 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 30.0,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        StudentName(
-                          studentName: 'Aisha',
-                        ),
-                        kHalfSizedBox,
-                        StudentClass(
-                            studentClass: 'Class II A | Roll no: 12'),
-                        kHalfSizedBox,
-                        StudentYear(studentYear: '2023-2024'),
-                      ],
-                    ),
-                    kHalfSizedBox,
-                    StudentPicture(
-                        picAddress: 'assets/images/student_profile.jpeg',
-                        onPress: () {
-                          // go to profile detail screen here
-                          Navigator.pushNamed(
-                              context, MyProfileScreen.routeName);
-                        }),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5.0,20.0,5.0,10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          StudentName(
+                            studentName: 'Teacher',
+                          ),
+                          kHalfSizedBox,
+                          StudentYear(studentYear: '2023-2024'),
+                        ],
+                      ),
+                      kHalfSizedBox,
+                      StudentPicture(
+                          picAddress: 'assets/images/student_profile.jpeg',
+                          onPress: () {
+                            // go to profile detail screen here
+                            Navigator.pushNamed(
+                                context, MyProfileScreen.routeName);
+                          }),
+                    ],
+                  ),
                 ),
                 sizedBox,
-
               ],
             ),
           ),
@@ -71,7 +69,6 @@ class HomeScreen extends StatelessWidget {
           //other will use all the remaining height of screen
           Expanded(
             child: Container(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 5.0),
               width: 100.w,
               decoration: BoxDecoration(
                 color: kOtherColor,
@@ -82,25 +79,7 @@ class HomeScreen extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        HomeCard(
-                          onPress: () {
-                            Navigator.pushNamed(context, QuizScreen.routeName);
-                          },
-                          icon: 'assets/icons/quiz.svg',
-                          title: 'Quiz',
-                        ),
 
-                        HomeCard(
-                          onPress: () {},
-                          icon: 'assets/icons/resume.svg',
-                          title: 'Puzzle',
-                        ),
-
-                      ],
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -110,13 +89,13 @@ class HomeScreen extends StatelessWidget {
                                 context, NoticeScreen.routeName);
                           },
                           icon: 'assets/icons/story.svg',
-                          title: 'Stories',
+                          title: 'E-Books',
                         ),
 
                         HomeCard(
                           onPress: () {
-                            // Navigator.pushNamed(
-                            //     context, VideoScreen.routeName);
+                            Navigator.pushNamed(
+                                context, GalleryScreen.routeName);
                           },
                           icon: 'assets/icons/gallery.svg',
                           title: 'Videos',
@@ -146,28 +125,6 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        HomeCard(
-                          onPress: () {
-                            Navigator.pushNamed(
-                                context, NoticeScreen.routeName);
-                          },
-                          icon: 'assets/icons/result.svg',
-                          title: 'Missing Words',
-                        ),
-
-                        HomeCard(
-                          onPress: () {
-                            Navigator.pushNamed(
-                                context, GalleryScreen.routeName);
-                          },
-                          icon: 'assets/icons/gallery.svg',
-                          title: 'Blank Spelling',
-                        ),
-                      ],
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -234,6 +191,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+
     );
   }
 }
@@ -281,3 +239,4 @@ class HomeCard extends StatelessWidget {
     );
   }
 }
+

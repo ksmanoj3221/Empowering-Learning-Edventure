@@ -5,23 +5,28 @@ import 'package:EmpoweringLearningEdventure/screens/home_screen/TeacherHomeScree
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:EmpoweringLearningEdventure/auth/authenticationService.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:EmpoweringLearningEdventure/auth/authenticationService.dart';
 
-class LoginScreen extends StatefulWidget {
-  static String routeName = 'LoginScreen';
+class TeacherLoginScreen extends StatefulWidget {
+  static String routeName = 'TeacherLoginScreen';
+
+  const TeacherLoginScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<TeacherLoginScreen> createState() => _TeacherLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _TeacherLoginScreenState extends State<TeacherLoginScreen> {
   late bool _passwordVisible = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   late final AuthenticationService _authenticationService;
   late final FirebaseAuth _firebaseAuth;
+
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
+  // late final AuthenticationService _authenticationService;
 
   //validate our form now
   final _formKey = GlobalKey<FormState>();
@@ -39,30 +44,34 @@ class _LoginScreenState extends State<LoginScreen> {
   //     // Use the login function from AuthenticationService
   //     await _authenticationService.login(context, email, password);
   //
-  //     // Log the authentication state
-  //     print("Auth state after login: ${FirebaseAuth.instance.currentUser}");
+  //     // Check if there is a current user
+  //     User? currentUser = FirebaseAuth.instance.currentUser;
   //
-  //     // Fetch user role from Firestore
-  //     String? userRole = await _authenticationService
-  //         .getUserRole(FirebaseAuth.instance.currentUser!.uid);
-  //     print("userRole : $userRole");
+  //     if (currentUser != null) {
+  //       // Fetch user role from Firestore
+  //       String? userRole = await _authenticationService.getUserRole(currentUser.uid);
+  //       print("userRole: $userRole");
   //
-  //     // Navigate based on user role
-  //     if (userRole == 'student') {
-  //       // Navigate to student screen
-  //       Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => HomeScreen()),
-  //       );
-  //     } else if (userRole == 'teacher') {
-  //       // Navigate to teacher screen
-  //       Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => TeacherHomeScreen()),
-  //       );
+  //       // Navigate based on user role
+  //       if (userRole == 'student') {
+  //         // Navigate to student screen
+  //         Navigator.pushReplacement(
+  //           context,
+  //           MaterialPageRoute(builder: (context) => HomeScreen()),
+  //         );
+  //       } else if (userRole == 'teacher') {
+  //         // Navigate to teacher screen
+  //         Navigator.pushReplacement(
+  //           context,
+  //           MaterialPageRoute(builder: (context) => TeacherHomeScreen()),
+  //         );
+  //       } else {
+  //         // Handle unknown or missing role
+  //         print('Unknown or missing user role');
+  //       }
   //     } else {
-  //       // Handle unknown or missing role
-  //       print('Unknown or missing user role');
+  //       // Handle the case where there is no current user
+  //       print('No current user');
   //     }
   //   } on FirebaseAuthException catch (ex) {
   //     // Show an alert dialog for incorrect login
@@ -86,7 +95,6 @@ class _LoginScreenState extends State<LoginScreen> {
   //   }
   // }
 
-
   Future<void> login(
       BuildContext context, String email, String password) async {
     try {
@@ -103,11 +111,11 @@ class _LoginScreenState extends State<LoginScreen> {
       print("userRole : $userRole");
 
       // Navigate based on user role
-      if (userRole == 'student') {
+      if (userRole == 'teacher') {
         // Navigate to student screen
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => TeacherHomeScreen()),
         );
       } else {
         // Handle unknown or missing role
@@ -136,12 +144,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   SizedBox(height: 35.0),
                   Image.asset(
-                    'assets/images/splash.png',
+                    'assets/images/logo.png',
                     height: 20.h,
                     width: 40.w,
                   ),
                   Text(
-                    'Hi Student',
+                    'Hi Teacher',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Text(
@@ -174,10 +182,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         DefaultButton(
                           onPress: () {
                             login(
-                              context,
-                              emailController.text.toString(),
-                              passwordController.text.toString(),
-                            );
+                                context,
+                                emailController.text.toString(),
+                                passwordController.text.toString());
+                            // loginUser(emailController.text.toString(), passwordController.text.toString());
                           },
                           title: 'SIGN IN',
                           iconData: Icons.arrow_forward_outlined,
@@ -192,9 +200,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 .textTheme
                                 .titleSmall!
                                 .copyWith(
-                                  color: kPrimaryColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
