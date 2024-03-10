@@ -1,3 +1,4 @@
+import 'package:EmpoweringLearningEdventure/change_password/change_password.dart';
 import 'package:EmpoweringLearningEdventure/constants.dart';
 import 'package:EmpoweringLearningEdventure/screens/assignment_screen/assignment_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/datesheet_screen/datesheet_screen.dart';
@@ -106,8 +107,8 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, NoticeScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, NoticeScreen.routeName);
                           },
                           icon: 'assets/icons/story.svg',
                           title: 'Stories',
@@ -151,8 +152,8 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, NoticeScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, NoticeScreen.routeName);
                           },
                           icon: 'assets/icons/result.svg',
                           title: 'Missing Words',
@@ -160,8 +161,8 @@ class HomeScreen extends StatelessWidget {
 
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, GalleryScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, GalleryScreen.routeName);
                           },
                           icon: 'assets/icons/gallery.svg',
                           title: 'Blank Spelling',
@@ -211,7 +212,9 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         HomeCard(
-                          onPress: () {},
+                          onPress: () {
+                            Navigator.pushNamed(context, ChangePasswordScreen.routeName);
+                          },
                           icon: 'assets/icons/lock.svg',
                           title: 'Change\nPassword',
                         ),
@@ -220,7 +223,7 @@ class HomeScreen extends StatelessWidget {
                             // Perform logout when the card is pressed
                             await _authenticationService.logOut();
                             // Navigate back to the login screen or any other screen you want
-                            Navigator.pushNamed(context, RoleSelection.routeName);  // Go back to login screen
+                            Navigator.pushNamedAndRemoveUntil(context, RoleSelection.routeName,(route) => false);  // Go back to login screen
                           },
                           icon: 'assets/icons/logout.svg',
                           title: 'Logout',
@@ -273,7 +276,7 @@ class HomeCard extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),

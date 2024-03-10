@@ -85,8 +85,8 @@ class TeacherHomeScreen extends StatelessWidget {
                       children: [
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, NoticeScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, NoticeScreen.routeName);
                           },
                           icon: 'assets/icons/story.svg',
                           title: 'E-Books',
@@ -94,8 +94,8 @@ class TeacherHomeScreen extends StatelessWidget {
 
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, GalleryScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, GalleryScreen.routeName);
                           },
                           icon: 'assets/icons/gallery.svg',
                           title: 'Videos',
@@ -107,8 +107,8 @@ class TeacherHomeScreen extends StatelessWidget {
                       children: [
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, NoticeScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, NoticeScreen.routeName);
                           },
                           icon: 'assets/icons/result.svg',
                           title: 'Notice',
@@ -155,8 +155,8 @@ class TeacherHomeScreen extends StatelessWidget {
 
                         HomeCard(
                           onPress: () {
-                            Navigator.pushNamed(
-                                context, DateSheetScreen.routeName);
+                            // Navigator.pushNamed(
+                            //     context, DateSheetScreen.routeName);
                           },
                           icon: 'assets/icons/datesheet.svg',
                           title: 'DateSheet',

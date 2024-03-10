@@ -60,16 +60,32 @@ void showAlertDialog(BuildContext context, String content) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Alert..'),
-        content: Text(content),
+        title: Text(
+          'Alert',
+          style: TextStyle(color: kPrimaryColor),
+        ),
+        content: Text(
+          content,
+          style: TextStyle(color: kTextBlackColor),
+        ),
         actions: [
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).pop(); // Close the dialog
             },
-            child: Text('OK'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: kPrimaryColor,
+            ),
+            child: Text(
+              'OK',
+              style: TextStyle(color: kTextWhiteColor),
+            ),
           ),
         ],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        backgroundColor: kOtherColor,
       );
     },
   );

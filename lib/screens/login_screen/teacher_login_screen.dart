@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:EmpoweringLearningEdventure/auth/authenticationService.dart';
+import 'package:EmpoweringLearningEdventure/screens/reset_password/reset_password.dart';
 
 class TeacherLoginScreen extends StatefulWidget {
   static String routeName = 'TeacherLoginScreen';
@@ -111,7 +112,7 @@ class _TeacherLoginScreenState extends State<TeacherLoginScreen> {
       print("userRole : $userRole");
 
       // Navigate based on user role
-      if (userRole == 'teacher') {
+      if (userRole == 'teacher' || userRole == 'Teacher') {
         // Navigate to student screen
         Navigator.pushReplacement(
           context,
@@ -193,15 +194,24 @@ class _TeacherLoginScreenState extends State<TeacherLoginScreen> {
                         sizedBox,
                         Align(
                           alignment: Alignment.bottomRight,
-                          child: Text(
-                            'Forgot Password',
-                            textAlign: TextAlign.end,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(
-                                    color: kPrimaryColor,
-                                    fontWeight: FontWeight.w500),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+                              );
+                            },
+                            child: Text(
+                              'Forgot Password',
+                              textAlign: TextAlign.end,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                color: kPrimaryColor,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
                       ],

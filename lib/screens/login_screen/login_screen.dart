@@ -1,7 +1,7 @@
 import 'package:EmpoweringLearningEdventure/components/custom_buttons.dart';
 import 'package:EmpoweringLearningEdventure/constants.dart';
+import 'package:EmpoweringLearningEdventure/screens/reset_password/reset_password.dart';
 import 'package:EmpoweringLearningEdventure/screens/home_screen/home_screen.dart';
-import 'package:EmpoweringLearningEdventure/screens/home_screen/TeacherHomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -109,6 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
           context,
           MaterialPageRoute(builder: (context) => HomeScreen()),
         );
+
       } else {
         // Handle unknown or missing role
         // Email/password account does not exist
@@ -185,16 +186,24 @@ class _LoginScreenState extends State<LoginScreen> {
                         sizedBox,
                         Align(
                           alignment: Alignment.bottomRight,
-                          child: Text(
-                            'Forgot Password',
-                            textAlign: TextAlign.end,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(
-                                  color: kPrimaryColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+                              );
+                            },
+                            child: Text(
+                              'Forgot Password',
+                              textAlign: TextAlign.end,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
                           ),
                         ),
                       ],

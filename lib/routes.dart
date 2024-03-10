@@ -1,3 +1,5 @@
+import 'package:EmpoweringLearningEdventure/change_password/change_password.dart';
+import 'package:EmpoweringLearningEdventure/screens/reset_password/reset_password.dart';
 import 'package:EmpoweringLearningEdventure/screens/gallery_screen/gallery_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/home_screen/TeacherHomeScreen.dart';
 import 'package:EmpoweringLearningEdventure/screens/login_screen/login_screen.dart';
@@ -30,4 +32,6 @@ Map<String, WidgetBuilder> routes = {
   GalleryScreen.routeName: (context) => GalleryScreen(),
   QuizScreen.routeName: (context) => QuizScreen(),
   VideoScreen.routeName: (context) => VideoScreen(),
+  ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
+  ChangePasswordScreen.routeName: (context) => ChangePasswordScreen(),
 };
