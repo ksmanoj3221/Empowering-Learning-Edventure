@@ -7,6 +7,7 @@ import 'package:EmpoweringLearningEdventure/screens/gallery_screen/gallery_scree
 import 'package:EmpoweringLearningEdventure/screens/login_screen/login_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/my_profile/my_profile.dart';
 import 'package:EmpoweringLearningEdventure/screens/quiz_screen/quiz_screen.dart';
+import 'package:EmpoweringLearningEdventure/screens/spelling_screen/spell_bee.dart';
 import 'package:EmpoweringLearningEdventure/screens/video_screen/video_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -161,8 +162,8 @@ class HomeScreen extends StatelessWidget {
 
                         HomeCard(
                           onPress: () {
-                            // Navigator.pushNamed(
-                            //     context, GalleryScreen.routeName);
+                            Navigator.pushNamed(
+                                context, SpellBee.routeName);
                           },
                           icon: 'assets/icons/gallery.svg',
                           title: 'Blank Spelling',

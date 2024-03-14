@@ -1,24 +1,29 @@
 import 'dart:io';
 import 'dart:ui';
 import 'package:EmpoweringLearningEdventure/routes.dart';
+import 'package:EmpoweringLearningEdventure/screens/spelling_screen/controller.dart';
 import 'package:EmpoweringLearningEdventure/screens/splash_screen/splash_screen.dart';
 import 'package:EmpoweringLearningEdventure/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   print(Firebase.apps.isEmpty);
   WidgetsFlutterBinding.ensureInitialized();
-  Platform.isAndroid ? await Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: 'AIzaSyBqUssAGcVgx6qGBYLrRQYTHIqQSZfvEXo',
-          appId: '1:853621482876:android:1ae5596f15b98342e530f9',
-          messagingSenderId: '853621482876',
-          projectId: 'empowering-learning-edve-d550f'
-      )
-  ) : await Firebase.initializeApp();
-  runApp(MyApp());
+  Platform.isAndroid
+      ? await Firebase.initializeApp(
+          options: const FirebaseOptions(
+              apiKey: 'AIzaSyBqUssAGcVgx6qGBYLrRQYTHIqQSZfvEXo',
+              appId: '1:853621482876:android:1ae5596f15b98342e530f9',
+              messagingSenderId: '853621482876',
+              projectId: 'empowering-learning-edve-d550f'))
+      : await Firebase.initializeApp();
+  runApp(ChangeNotifierProvider(
+    create: (_) => Controller(),
+    child: MyApp(),
+  ));
   print(Firebase.apps.isEmpty);
 }
 
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
     //it requires 3 parameters
     //context, orientation, device
     //it always requires, see plugin documentation
-    return Sizer(builder: (context, orientation, device){
+    return Sizer(builder: (context, orientation, device) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'School Brain',

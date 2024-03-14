@@ -7,6 +7,7 @@ import 'package:EmpoweringLearningEdventure/screens/login_screen/teacher_login_s
 import 'package:EmpoweringLearningEdventure/screens/notice_screen/notice_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/quiz_screen/quiz_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/role_selection/role_selection.dart';
+import 'package:EmpoweringLearningEdventure/screens/spelling_screen/spell_bee.dart';
 import 'package:EmpoweringLearningEdventure/screens/splash_screen/splash_screen.dart';
 import 'package:EmpoweringLearningEdventure/screens/video_screen/video_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,4 +35,5 @@ Map<String, WidgetBuilder> routes = {
   VideoScreen.routeName: (context) => VideoScreen(),
   ResetPasswordScreen.routeName: (context) => ResetPasswordScreen(),
   ChangePasswordScreen.routeName: (context) => ChangePasswordScreen(),
+  SpellBee.routeName: (context) => SpellBee(),
 };
